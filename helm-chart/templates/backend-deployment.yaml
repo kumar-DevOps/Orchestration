@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: streaming
+        image: {{ .Values.backend.streaming.image }}
+        ports:
+        - containerPort: {{ .Values.backend.streaming.servicePort }}
+      - name: chat
+        image: {{ .Values.backend.chat.image }}
+        ports:
+        - containerPort: {{ .Values.backend.chat.servicePort }}
+      - name: admin
+        image: {{ .Values.backend.admin.image }}
+        ports:
+        - containerPort: {{ .Values.backend.admin.servicePort }}
+      - name: auth
+        image: {{ .Values.backend.auth.image }}
+        ports:
+        - containerPort: {{ .Values.backend.auth.servicePort }}

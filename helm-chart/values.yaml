@@ -1,0 +1,22 @@
+frontend:
+  image: ""
+  replicas: 2
+  servicePort: 80
+
+backend:
+  streaming:
+    image: ""
+    replicas: 2
+    servicePort: 8080
+  chat:
+    image: ""
+    replicas: 2
+    servicePort: 8081
+  admin:
+    image: ""
+    replicas: 2
+    servicePort: 8082
+  auth:
+    image: ""
+    replicas: 2
+    servicePort: 8083
